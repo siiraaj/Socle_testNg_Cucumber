@@ -1,0 +1,23 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="TestSuite">
+	<parameter name="SUT" value="${env}" />
+	<test name="Scenario 1 - Bout en bout creation espace perso">
+		<parameter name="PlatForm" value="SELENIUM_REMOTE_CHROME" />
+		<classes>
+			<class name="tests.Scenario1" />
+		</classes>
+	</test>	
+	<test name="Scenario 1 - Bout en bout creation espace perso">
+		<parameter name="PlatForm" value="APPIUM_ANDROID_CHROME" />
+		<classes>
+			<class name="tests.Scenario1" />
+		</classes>
+	</test>
+	<test name="Scenario 1 - Bout en bout creation espace perso">
+		<parameter name="PlatForm" value="APPIUM_IOS_SAFARI" />
+		<classes>
+			<class name="tests.Scenario1" />
+		</classes>
+	</test>
+</suite>
+

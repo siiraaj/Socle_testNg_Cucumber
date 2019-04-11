@@ -1,0 +1,68 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="TestSuite">
+	<parameter name="SUT" value="SUT_DEFAULT" />
+	<parameter name="PlatForm" value="APPIUM_ANDROID_CHROME" />
+	<test name="Testweb_Accueil">
+		<classes>
+			<class name="tests.TestWebECredit2">
+				<methods>
+					<include name="Testweb_Accueil" />
+				</methods>
+			</class>
+		</classes>
+	</test>
+	<test name="Testweb_Projet">
+		<classes>
+			<class name="tests.TestWebECredit2">
+				<methods>
+					<include name="Testweb_Projet" />
+				</methods>
+			</class>
+		</classes>
+	</test>
+	<test name="Testweb_Profil">
+		<classes>
+			<class name="tests.TestWebECredit2">
+				<methods>
+					<include name="Testweb_Profil" />
+				</methods>
+			</class>
+		</classes>
+	</test>
+	<test name="Testweb_Budget">
+		<classes>
+			<class name="tests.TestWebECredit2">
+				<methods>
+					<include name="Testweb_Budget" />
+				</methods>
+			</class>
+		</classes>
+	</test>
+	<test name="Testweb_Assurance">
+		<classes>
+			<class name="tests.TestWebECredit2">
+				<methods>
+					<include name="Testweb_Assurance" />
+				</methods>
+			</class>
+		</classes>
+	</test>
+	<test name="Testweb_Propositions">
+		<classes>
+			<class name="tests.TestWebECredit2">
+				<methods>
+					<include name="Testweb_Propositions" />
+				</methods>
+			</class>
+		</classes>
+	</test>
+	<test name="Testweb_Fin">
+		<classes>
+			<class name="tests.TestWebECredit2">
+				<methods>
+					<include name="Testweb_Fin" />
+				</methods>
+			</class>
+		</classes>
+	</test>
+</suite>

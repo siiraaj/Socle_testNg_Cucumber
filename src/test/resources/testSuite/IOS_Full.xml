@@ -1,0 +1,41 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="TestSuite">
+	<parameter name="SUT" value="${env}" />
+	<test name="Scenario 1 - Bout en bout creation espace perso">
+		<parameter name="PlatForm" value="APPIUM_IOS_SAFARI" />
+		<classes>
+			<class name="tests.Scenario1" />
+		</classes>
+	</test>			
+	<test name="Scenario 3 - Bout en bout creation espace perso">
+		<parameter name="PlatForm" value="APPIUM_IOS_SAFARI" />
+		<classes>
+			<class name="tests.Scenario3" />
+		</classes>
+	</test>	
+	<test name="Scenario 6 - Verification aucune proposition sur la duree">
+		<parameter name="PlatForm" value="APPIUM_IOS_SAFARI" />
+		<classes>
+			<class name="tests.Scenario6" />
+		</classes>
+	</test>	
+	<test name="Scenario 7 - Verification message demande financement trop faible">
+		<parameter name="PlatForm" value="APPIUM_IOS_SAFARI" />
+		<classes>
+			<class name="tests.Scenario7" />
+		</classes>
+	</test>	
+	<test name="Scenario 9 - Verification aucune proposition sur la duree">
+		<parameter name="PlatForm" value="APPIUM_IOS_SAFARI" />
+		<classes>
+			<class name="tests.Scenario9" />
+		</classes>
+	</test>			
+	<test name="Scenario 13 - Bout en bout creation espace perso">
+		<parameter name="PlatForm" value="APPIUM_IOS_SAFARI" />
+		<classes>
+			<class name="tests.Scenario13" />
+		</classes>
+	</test>	
+</suite>
+
