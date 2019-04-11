@@ -1,5 +1,7 @@
 package seleniumgluecode;
 import java.util.concurrent.TimeUnit;
+
+import base.BasePageSelenium;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
@@ -11,15 +13,14 @@ import org.testng.annotations.Test;
 import org.junit.Assert;
 import base.BaseTest;;
 
-public class selenium extends BaseTest {
+public class selenium extends BasePageSelenium {
 	
 	//public static WebDriver driver;
-	@Test(groups = { "SELENIUM_LOCAL_CHROME" })
     @Given("^user is  on homepage$")
     public void user_is_on_homepage() throws Throwable {     
-    	//System.setProperty("webdriver.gecko.driver","C:/temp/geckodriver.exe");
-    	//driver = new FirefoxDriver();
-    	//driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+    	System.setProperty("webdriver.gecko.driver","C:\\Users\\machabba\\Documents\\Sogeti\\Drivers\\geckodriver.exe");
+    	driver = new FirefoxDriver();
+    	driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
     	LOGGER.debug("erreur");
         driver.get("http://automationpractice.com/index.php");
     }

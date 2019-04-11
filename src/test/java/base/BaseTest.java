@@ -199,7 +199,7 @@ public class BaseTest {
     		testResult = "Success_Percentage_Failure";
     	}    	
     	LOGGER.info("testResult="+testResult);
-    	takeScreenshot("lastCaptureTest_"+testName+"_"+methodName);
+    	//takeScreenshot("lastCaptureTest_"+testName+"_"+methodName);
     }
 			
 
@@ -251,6 +251,7 @@ public class BaseTest {
 					LOGGER.info("setUpDriver for "+expectedSUT);
 					optionsCH = new ChromeOptions();
 					optionsCH.addArguments("start-maximized");
+					System.setProperty("webdriver.chrome.driver","C:\\Users\\machabba\\Documents\\Sogeti\\Drivers\\chromedriver.exe");
 					webDriver = new ChromeDriver(optionsCH);
 					webDriverWait = new WebDriverWait(webDriver, Long.parseLong(propSelenium.getProperty("selenium.chrome.wait"))); 
 					webDriver.manage().timeouts().implicitlyWait(Long.parseLong(propSelenium.getProperty("selenium.chrome.implicitlyWait")), TimeUnit.SECONDS);

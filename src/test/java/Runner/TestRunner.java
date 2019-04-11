@@ -1,28 +1,44 @@
 package Runner;
 
-import java.io.File;
-import base.BaseTest;
-import org.junit.AfterClass;
+import cucumber.api.CucumberOptions;
+import cucumber.api.testng.PickleEventWrapper;
+import cucumber.api.testng.TestNGCucumberRunner;
+import cucumber.api.testng.CucumberFeatureWrapper;
+import cucumber.junit.Cucumber;
 import org.junit.runner.RunWith;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
-import com.cucumber.listener.ExtentCucumberFormatter;
-import com.cucumber.listener.Reporter;
-
-import cucumber.api.CucumberOptions;
-import cucumber.api.junit.Cucumber;
-
-@RunWith(Cucumber.class)
+//@RunWith(Cucumber.class)
 @CucumberOptions(
-        features ="Features"
-        ,glue={"seleniumgluecode"}
+        features ="Features",
+		glue={"seleniumgluecode"}
                 )
 
-public class TestRunner extends BaseTest {
-	@Test(groups = { "SELENIUM_LOCAL_CHROME" })
-	public void Test() throws Exception
-	{
-		System.out.println("test");
+public class TestRunner {
+
+	private TestNGCucumberRunner testNGCucumberRunner;
+
+	@BeforeClass(alwaysRun = true)
+	public void setUpClass() throws Exception {
+		testNGCucumberRunner = new TestNGCucumberRunner(this.getClass());
 	}
-	
+
+	@Test(groups = "cucumber", description = "Runs Cucumber Feature", dataProvider = "features")
+	public void feature(CucumberFeatureWrapper cucumberFeature) {
+		testNGCucumberRunner.runCucumber(cucumberFeature.getCucumberFeature());
+	}
+
+	@DataProvider
+	public Object[][] features() {
+		return testNGCucumberRunner.provideFeatures();
+	}
+
+	@AfterClass(alwaysRun = true)
+	public void tearDownClass() throws Exception {
+		testNGCucumberRunner.finish();
+	}
 }
+
