@@ -13,6 +13,8 @@ import java.util.Map;
 import java.util.Properties;
 import java.util.Set;
 import java.util.concurrent.TimeUnit;
+
+import cucumber.api.testng.TestNGCucumberRunner;
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.io.IOUtils;
 import org.json.JSONObject;
@@ -34,13 +36,7 @@ import org.testng.Assert;
 import org.testng.ITestContext;
 import org.testng.ITestResult;
 import org.testng.SkipException;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.AfterSuite;
-import org.testng.annotations.AfterTest;
-import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.BeforeSuite;
-import org.testng.annotations.BeforeTest;
-import org.testng.annotations.Listeners;
+import org.testng.annotations.*;
 import com.google.common.base.Enums;
 import com.mashape.unirest.http.HttpResponse;
 import com.mashape.unirest.http.JsonNode;
@@ -86,7 +82,24 @@ public class BaseTest {
 	public static String strGetPlatform;
 	public static String strGetDeviceName;
 	public static String restartDriverOn;
-	
+
+	public static TestNGCucumberRunner testNGCucumberRunner;
+
+	@BeforeClass(alwaysRun = true)
+	public void setUpClass() throws Exception {
+		testNGCucumberRunner = new TestNGCucumberRunner(this.getClass());
+	}
+
+	@DataProvider
+	public Object[][] features() {
+		return testNGCucumberRunner.provideFeatures();
+	}
+
+	@AfterClass(alwaysRun = true)
+	public void tearDownClass() throws Exception {
+		testNGCucumberRunner.finish();
+	}
+
 	@BeforeSuite(alwaysRun = true)
 	public void beforeSuite(ITestContext context) throws Exception {
 		skipTest = false;		
@@ -146,10 +159,11 @@ public class BaseTest {
 		}
 
 		setCurrentPlatform(context);
-		
+		/**
 		if (restartDriverOn.equals("TEST")) {
 			setUpDriver(PlatForm.valueOf(currentPlatForm));
 		}
+		 **/
 		
     }	
 		
