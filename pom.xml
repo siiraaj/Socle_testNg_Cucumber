@@ -152,6 +152,8 @@
 				<activeByDefault>true</activeByDefault>
 			</activation>
 			<build>
+				<defaultGoal>compile</defaultGoal>
+
 				<plugins>
 					<plugin>
 						<groupId>org.apache.maven.plugins</groupId>
@@ -202,7 +204,9 @@
 		<profile>
 		<id>jar</id>		
   <build>
-    <plugins>
+	  <defaultGoal>compile</defaultGoal>
+
+	  <plugins>
       <!-- any other plugins -->
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>

@@ -2,14 +2,7 @@ package Runner;
 
 import base.BaseTest;
 import cucumber.api.CucumberOptions;
-import cucumber.api.testng.PickleEventWrapper;
-import cucumber.api.testng.TestNGCucumberRunner;
 import cucumber.api.testng.CucumberFeatureWrapper;
-import cucumber.junit.Cucumber;
-import org.junit.runner.RunWith;
-import org.testng.annotations.AfterClass;
-import org.testng.annotations.BeforeClass;
-import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 //@RunWith(Cucumber.class)
@@ -17,11 +10,12 @@ import org.testng.annotations.Test;
         features ="Features",
 		glue={"seleniumgluecode"},
 		tags = {"~@Ignore"},
-		format = {
+		plugin = {
 				"pretty",
 				"html:target/cucumber-reports/cucumber-pretty",
 				"json:target/cucumber-reports/CucumberTestReport.json",
-				"rerun:target/cucumber-reports/rerun.txt"
+				"rerun:target/cucumber-reports/rerun.txt",
+				"junit:target/cucumber-reports/cucumber.xml"
 		})
 
 public class TestRunner extends BaseTest {
