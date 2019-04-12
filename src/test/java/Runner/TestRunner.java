@@ -15,8 +15,14 @@ import org.testng.annotations.Test;
 //@RunWith(Cucumber.class)
 @CucumberOptions(
         features ="Features",
-		glue={"seleniumgluecode"}
-                )
+		glue={"seleniumgluecode"},
+		tags = {"~@Ignore"},
+		format = {
+				"pretty",
+				"html:target/cucumber-reports/cucumber-pretty",
+				"json:target/cucumber-reports/CucumberTestReport.json",
+				"rerun:target/cucumber-reports/rerun.txt"
+		})
 
 public class TestRunner extends BaseTest {
 
